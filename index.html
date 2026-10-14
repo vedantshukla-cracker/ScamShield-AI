@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScamShield AI — Next-Gen Digital Fraud & Scam Detection Engine</title>
+    <meta name="description" content="Instant client-side AI analysis for suspicious SMS, emails, phishing links, bank alerts, and fraud attempts. Stay protected with real-time heuristic scanning.">
+    <meta name="theme-color" content="#070b16">
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:title" content="ScamShield AI — Digital Fraud & Phishing Shield">
+    <meta property="og:description" content="Inspect suspicious messages, links, and phone numbers in seconds with proactive cyber intelligence.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpeg" href="shield-logo.jpg">
+</head>
+<body>
+    <!-- Background Ambient Glow Gradients -->
+    <div class="ambient-glow glow-top-left" aria-hidden="true"></div>
+    <div class="ambient-glow glow-top-right" aria-hidden="true"></div>
+    <div class="ambient-glow glow-center" aria-hidden="true"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="topNav">
+        <div class="nav-container">
+            <a href="#" class="brand-logo" aria-label="ScamShield AI Home">
+                <img src="shield-logo.jpg" alt="ScamShield AI Logo" class="brand-icon">
+                <div class="brand-text">
+                    <span class="brand-title">ScamShield <span class="gradient-text">AI</span></span>
+                    <span class="brand-tagline">Cyber Threat Intelligence</span>
+                </div>
+            </a>
+
+            <nav class="nav-links" id="mainNav">
+                <a href="#analyzer" class="nav-link active">Scanner</a>
+                <a href="#quick-presets" class="nav-link">Scam Presets</a>
+                <a href="#quiz-section" class="nav-link">Instinct Trainer</a>
+                <a href="#emergency-guide" class="nav-link">Emergency Help</a>
+                <a href="#scan-history" class="nav-link">History <span class="history-count-badge" id="historyBadge">0</span></a>
+            </nav>
+
+            <div class="nav-actions">
+                <button type="button" class="btn-icon" id="soundToggleBtn" aria-label="Toggle Sound Effects" title="Sound Effects: On">
+                    <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+                </button>
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    <span class="status-label">Engine Online</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-badge">
+                <span class="pulse-icon">⚡</span> Heuristic & AI Heuristic Analyzer v2.4 Active
+            </div>
+            <h1 class="hero-title">Pause Before You <span class="gradient-hero-text">Trust.</span></h1>
+            <p class="hero-subtitle">
+                Protect yourself from sophisticated social engineering, urgent bank impersonations, phishing URLs, lottery traps, and crypto fraud before falling victim.
+            </p>
+
+            <!-- Key Trust & Feature Metrics -->
+            <div class="features-bar">
+                <div class="feat-item">
+                    <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span>100% Client-Side Privacy</span>
+                </div>
+                <div class="feat-item">
+                    <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 14 14"></polyline>
+                    </svg>
+                    <span>Sub-second Instant Scan</span>
+                </div>
+                <div class="feat-item">
+                    <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                    <span>40+ Attack Pattern Checks</span>
+                </div>
+                <div class="feat-item">
+                    <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span>Zero Data Logging</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Analyzer Card -->
+        <section class="analyzer-wrapper" id="analyzer">
+            <div class="glass-card main-card">
+                <!-- Analyzer Mode Tabs -->
+                <div class="tab-header" role="tablist">
+                    <button class="tab-btn active" role="tab" id="tabMessage" aria-selected="true" data-tab="messageTab">
+                        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <span>Message / Email / SMS</span>
+                    </button>
+                    <button class="tab-btn" role="tab" id="tabUrl" aria-selected="false" data-tab="urlTab">
+                        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <span>Link / Domain Inspector</span>
+                    </button>
+                    <button class="tab-btn" role="tab" id="tabPhone" aria-selected="false" data-tab="phoneTab">
+                        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>Caller / Sender Check</span>
+                    </button>
+                </div>
+
+                <!-- Tab Content 1: Message Scanner -->
+                <div class="tab-content active" id="messageTab">
+                    <div class="input-head">
+                        <label for="messageInput" class="input-label">
+                            Paste Suspicious Text (SMS, WhatsApp, Email, DM, Telegram)
+                        </label>
+                        <div class="input-meta">
+                            <span id="charCount">0 characters</span>
+                            <button type="button" class="btn-text" id="pasteClipboardBtn">
+                                📋 Paste from Clipboard
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="textarea-container">
+                        <textarea 
+                            id="messageInput" 
+                            placeholder="Example: 'Dear customer, your bank account is suspended due to pending KYC verification. Click immediately here: http://bit.ly/bank-verify-39 or your funds will be seized in 2 hours.'" 
+                            rows="6"
+                            spellcheck="false"
+                        ></textarea>
+                    </div>
+
+                    <!-- Quick Preset Buttons -->
+                    <div class="presets-container" id="quick-presets">
+                        <span class="preset-label">Test Realistic Scenarios:</span>
+                        <div class="preset-chips">
+                            <button type="button" class="preset-btn" data-preset="bank">🚨 Bank KYC Alert</button>
+                            <button type="button" class="preset-btn" data-preset="delivery">📦 Failed Package</button>
+                            <button type="button" class="preset-btn" data-preset="crypto">💎 2x Crypto Return</button>
+                            <button type="button" class="preset-btn" data-preset="job">💼 $500/day Job Offer</button>
+                            <button type="button" class="preset-btn" data-preset="arrest">👮 Digital Arrest Threat</button>
+                            <button type="button" class="preset-btn preset-legit" data-preset="legit">✅ Legit Order (Safe)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content 2: URL Inspector -->
+                <div class="tab-content" id="urlTab">
+                    <div class="input-head">
+                        <label for="urlInput" class="input-label">
+                            Enter Suspicious Website Link or Web Address
+                        </label>
+                    </div>
+                    <div class="url-input-group">
+                        <span class="url-addon">🌐</span>
+                        <input 
+                            type="text" 
+                            id="urlInput" 
+                            class="text-input" 
+                            placeholder="e.g. http://secure-login-paypal.accounts-update.xyz/verify"
+                        />
+                    </div>
+                    <p class="field-hint">
+                        We inspect domain age signs, suspicious TLDs (.xyz, .top, .buzz), brand impersonation, deceptive punycode, and HTTP security headers.
+                    </p>
+                </div>
+
+                <!-- Tab Content 3: Phone / Sender Inspector -->
+                <div class="tab-content" id="phoneTab">
+                    <div class="input-head">
+                        <label for="phoneInput" class="input-label">
+                            Enter Sender Phone Number or SMS Header Tag
+                        </label>
+                    </div>
+                    <div class="url-input-group">
+                        <span class="url-addon">📞</span>
+                        <input 
+                            type="text" 
+                            id="phoneInput" 
+                            class="text-input" 
+                            placeholder="e.g. +1 (800) 243-9800 or sender header like VM-SBIINB or +91 98200..."
+                        />
+                    </div>
+                    <p class="field-hint">
+                        Checks international country codes, virtual VoIP markers, spoofed toll-free prefixes, and fake corporate header structures.
+                    </p>
+                </div>
+
+                <!-- Action Toolbar -->
+                <div class="action-bar">
+                    <button type="button" class="btn btn-primary" id="analyzeBtn">
+                        <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                        <span>Analyze Content</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="clearBtn">
+                        <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                        <span>Clear</span>
+                    </button>
+                </div>
+
+                <!-- Simulated Scanning High-Tech Animation (Hidden by default) -->
+                <div class="scanner-progress-box hidden" id="scanProgressBox">
+                    <div class="radar-scanner">
+                        <div class="radar-sweep"></div>
+                        <div class="radar-dot dot-1"></div>
+                        <div class="radar-dot dot-2"></div>
+                    </div>
+                    <div class="progress-info">
+                        <div class="progress-title" id="scanStepText">Evaluating social engineering signals...</div>
+                        <div class="progress-track">
+                            <div class="progress-fill" id="scanProgressBar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Threat Assessment Output Card (Hidden initially) -->
+                <div class="assessment-result hidden" id="assessmentResult" aria-live="polite">
+                    <!-- Top Summary Banner -->
+                    <div class="result-banner" id="resultBanner">
+                        <div class="gauge-column">
+                            <!-- Circular SVG Risk Meter -->
+                            <div class="circular-gauge">
+                                <svg class="gauge-svg" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+                                    <circle class="gauge-fill" id="gaugeCircle" cx="60" cy="60" r="50"></circle>
+                                </svg>
+                                <div class="gauge-center">
+                                    <span class="gauge-score" id="gaugeScore">0</span>
+                                    <span class="gauge-max">/100</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="summary-info">
+                            <div class="threat-level-badge" id="threatBadge">Analyzing...</div>
+                            <h2 class="threat-headline" id="threatHeadline">Calculated Threat Assessment</h2>
+                            <p class="threat-desc" id="threatDescription">Detailed evaluation based on linguistic, URL, and contextual heuristics.</p>
+                            
+                            <div class="confidence-row">
+                                <span class="confidence-tag">⚡ Analysis Confidence: <strong id="confidenceVal">95%</strong></span>
+                                <span class="flags-detected-tag">🚩 Flags Found: <strong id="flagCount">0</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Highlighted Text Inspector -->
+                    <div class="inspected-text-box" id="inspectedTextBox">
+                        <div class="box-title">
+                            <span>🔍 High-Risk Phrase Analysis</span>
+                            <span class="sub-title">Highlighted words indicate deceptive psychological pressure or attack vectors</span>
+                        </div>
+                        <div class="highlighted-content" id="highlightedContent"></div>
+                    </div>
+
+                    <!-- Red Flags Detail Grid -->
+                    <div class="red-flags-section">
+                        <h3 class="section-title">Critical Indicators & Red Flags</h3>
+                        <div class="flags-grid" id="flagsGrid"></div>
+                    </div>
+
+                    <!-- Attacker Modus Operandi (Blueprint) -->
+                    <div class="attacker-blueprint" id="attackerBlueprint">
+                        <h3 class="blueprint-title">
+                            <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 15h-2v-6h2zm0-8h-2V7h2z"></path>
+                            </svg>
+                            Attacker's Objective & Playbook
+                        </h3>
+                        <p id="blueprintText">Analysis of motive and deception methodology.</p>
+                    </div>
+
+                    <!-- Immediate Action Protocol -->
+                    <div class="action-protocol">
+                        <h3 class="protocol-title">Recommended Safety Protocol</h3>
+                        <ul class="protocol-list" id="protocolList"></ul>
+                    </div>
+
+                    <!-- Result Utilities Bar -->
+                    <div class="result-actions-bar">
+                        <button type="button" class="btn btn-secondary btn-sm" id="copyReportBtn">
+                            📋 Copy Full Report
+                        </button>
+                        <button type="button" class="btn btn-secondary btn-sm" id="saveHistoryBtn">
+                            💾 Save to Scan History
+                        </button>
+                        <a href="#emergency-guide" class="btn btn-secondary btn-sm">
+                            🚨 Get Emergency Help
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Scam Instinct Trainer (Quiz Section) -->
+        <section class="section-container" id="quiz-section">
+            <div class="section-header">
+                <span class="badge-accent">Interactive Training</span>
+                <h2 class="section-heading">Test Your Scam Instincts</h2>
+                <p class="section-sub">Can you distinguish between sophisticated fraudulent messages and genuine company communications?</p>
+            </div>
+
+            <div class="glass-card quiz-card">
+                <div class="quiz-top">
+                    <span class="quiz-step" id="quizProgress">Scenario 1 of 5</span>
+                    <span class="quiz-score-pill">Score: <strong id="quizScore">0</strong> / 5</span>
+                </div>
+
+                <div class="quiz-body">
+                    <div class="quiz-phone-mockup">
+                        <div class="phone-notch"></div>
+                        <div class="message-bubble" id="quizMessageBubble">
+                            <!-- Scenario injected via JS -->
+                        </div>
+                    </div>
+
+                    <div class="quiz-controls">
+                        <p class="quiz-question">Would you trust this message or treat it as a scam?</p>
+                        <div class="quiz-buttons">
+                            <button type="button" class="btn btn-scam-choice" id="choiceScamBtn">
+                                🛑 Likely Scam / Phishing
+                            </button>
+                            <button type="button" class="btn btn-legit-choice" id="choiceLegitBtn">
+                                🛡️ Legitimate Message
+                            </button>
+                        </div>
+                        <div class="quiz-feedback hidden" id="quizFeedback"></div>
+                        <button type="button" class="btn btn-secondary hidden" id="quizNextBtn">
+                            Next Scenario →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Threat Catalog / Defense Knowledge Base -->
+        <section class="section-container" id="safety-rules">
+            <div class="section-header">
+                <span class="badge-accent">Knowledge Armor</span>
+                <h2 class="section-heading">Top 4 Modern Scam Vectors</h2>
+                <p class="section-sub">Understand the core deceptive mechanisms cybercriminals deploy across channels.</p>
+            </div>
+
+            <div class="threat-grid">
+                <article class="threat-card">
+                    <div class="threat-icon-box danger-tone">
+                        <span>🚨</span>
+                    </div>
+                    <h3>Digital Arrest & Coercion</h3>
+                    <p>Scammers pose as Customs, Police, or CBI officials over Skype/WhatsApp claiming parcels contain illicit goods, coercing victims into "clearance payments".</p>
+                    <div class="defense-rule">
+                        <strong>Golden Rule:</strong> Real law enforcement NEVER conducts court hearings or arrests over video calls.
+                    </div>
+                </article>
+
+                <article class="threat-card">
+                    <div class="threat-icon-box warning-tone">
+                        <span>🏦</span>
+                    </div>
+                    <h3>Bank KYC & Electricity Cut</h3>
+                    <p>Urgent threats claiming electricity will be disconnected tonight or SIM/Pan card is blocked unless an APK app or verification link is processed.</p>
+                    <div class="defense-rule">
+                        <strong>Golden Rule:</strong> Utility companies never shut off power via automated SMS with personal mobile contact numbers.
+                    </div>
+                </article>
+
+                <article class="threat-card">
+                    <div class="threat-icon-box crypto-tone">
+                        <span>📈</span>
+                    </div>
+                    <h3>Pig Butchering / High Returns</h3>
+                    <p>Fraudsters build romantic or friendly rapport over weeks, then lure victims to fraudulent trading apps showing fake exponential crypto profits.</p>
+                    <div class="defense-rule">
+                        <strong>Golden Rule:</strong> Guaranteed 20%+ weekly returns do not exist. Any app demanding "tax fees" to withdraw is a trap.
+                    </div>
+                </article>
+
+                <article class="threat-card">
+                    <div class="threat-icon-box delivery-tone">
+                        <span>📦</span>
+                    </div>
+                    <h3>Smishing & Parcel Redelivery</h3>
+                    <p>Fake SMS claiming package delivery failed due to missing street number. Victims are asked to pay a nominal fee ($1 or ₹25), harvesting credit card credentials.</p>
+                    <div class="defense-rule">
+                        <strong>Golden Rule:</strong> Track deliveries directly inside official postal/courier apps, never through SMS links.
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Emergency Action & Reporting Directory -->
+        <section class="section-container" id="emergency-guide">
+            <div class="glass-card emergency-card">
+                <div class="emergency-badge">🚨 Immediate Crisis Response</div>
+                <h2>Already Clicked a Link or Sent Money?</h2>
+                <p class="emergency-intro">Act within the golden 2-hour window to minimize financial and identity exposure.</p>
+
+                <div class="emergency-steps">
+                    <div class="step-card">
+                        <span class="step-num">01</span>
+                        <h4>Freeze Accounts & Cards</h4>
+                        <p>Open your bank app immediately and toggle temporary card freeze or call your bank's 24/7 emergency fraud helpline.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">02</span>
+                        <h4>Reset Critical Passwords</h4>
+                        <p>Change your email, banking, and social credentials from a separate, secure device. Terminate all active sessions.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">03</span>
+                        <h4>Report to Cyber Police</h4>
+                        <p>File a report with national cyber helplines immediately. Financial transactions can often be put on lien if caught quickly.</p>
+                    </div>
+                </div>
+
+                <div class="helpline-directory">
+                    <h3>National Cyber Crime Hotlines</h3>
+                    <div class="helpline-grid">
+                        <div class="helpline-box">
+                            <span class="country-flag">🇮🇳 India</span>
+                            <span class="hotline-phone">Dial 1930</span>
+                            <a href="https://cybercrime.gov.in" target="_blank" rel="noopener noreferrer">cybercrime.gov.in ↗</a>
+                        </div>
+                        <div class="helpline-box">
+                            <span class="country-flag">🇺🇸 USA</span>
+                            <span class="hotline-phone">IC3 / FTC</span>
+                            <a href="https://reportfraud.ftc.gov" target="_blank" rel="noopener noreferrer">reportfraud.ftc.gov ↗</a>
+                        </div>
+                        <div class="helpline-box">
+                            <span class="country-flag">🇬🇧 UK</span>
+                            <span class="hotline-phone">0300 123 2040</span>
+                            <a href="https://actionfraud.police.uk" target="_blank" rel="noopener noreferrer">actionfraud.police.uk ↗</a>
+                        </div>
+                        <div class="helpline-box">
+                            <span class="country-flag">🌐 Global Phishing</span>
+                            <span class="hotline-phone">APWG</span>
+                            <a href="https://apwg.org/reportphishing" target="_blank" rel="noopener noreferrer">reportphishing@apwg.org ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scan History Section -->
+        <section class="section-container" id="scan-history">
+            <div class="history-header">
+                <div>
+                    <h2 class="section-heading">Your Recent Scan History</h2>
+                    <p class="section-sub">Stored locally in your browser cache. Never transmitted to any third-party server.</p>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" id="clearHistoryBtn">
+                    🗑️ Clear History
+                </button>
+            </div>
+
+            <div class="history-list" id="historyList">
+                <div class="empty-history" id="emptyHistoryMsg">
+                    <p>No recent scans recorded yet. Analyze a message above to see your history log.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modern Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="shield-logo.jpg" alt="ScamShield Logo" class="footer-icon">
+                    <span class="footer-title">ScamShield <span>AI</span></span>
+                </div>
+                <p class="footer-disclaimer">
+                    ScamShield AI utilizes heuristic rule engines, natural language token evaluation, and threat intelligence patterns for cyber education. Always verify sensitive communications via trusted official hotlines.
+                </p>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ScamShield AI — Empowering digital resilience against cyber fraud.</p>
+                <div class="footer-links">
+                    <a href="#analyzer">Scanner</a>
+                    <a href="#safety-rules">Threat Defense</a>
+                    <a href="#emergency-guide">Emergency Directory</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer" aria-live="assertive"></div>
+
+    <!-- Application JavaScript Engine -->
+    <script src="script.js"></script>
+</body>
+</html>
